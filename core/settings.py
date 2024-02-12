@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -280,3 +281,6 @@ JAZZMIN_SETTINGS = {
     # Add a language dropdown into the admin
     "language_chooser": False,
 }
+
+
+# LOGIN_REDIRECT_URL = 'home'

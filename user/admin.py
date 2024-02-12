@@ -9,8 +9,8 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ['country', 'postalCode',]
-    list_filter = ['postalCode', 'city']
+    list_display = ['user', 'country', 'postalCode',]
+    list_filter = ['postalCode', 'city', 'user']
 
 
 admin.site.register(Profile, ProfileAdmin)

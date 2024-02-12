@@ -19,17 +19,19 @@ class Profile(models.Model):
     job = models.CharField(max_length=255, null=True, blank=True)
     educationField = models.CharField(max_length=255, null=True, blank=True)
     degree = models.CharField(max_length=255, blank=True, null=True)
-    address = models.OneToOneField(
-        "Address", on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
 
+# python manage.py migrate --run-syncdb
+
 
 class Address(models.Model):
+    user = models.ForeignKey(
+        Profile, on_delete=models.CASCADE, null=True, blank=True)
     country = models.CharField(max_length=50, blank=True, null=True)
     city = models.CharField(max_length=50, blank=True, null=True)
     postalCode = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return self.country
+        return self.user
