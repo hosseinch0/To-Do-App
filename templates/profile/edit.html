@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <h1 style="text-align: center;">PROFILE EDIT</h1>
+    {% if user.is_authenticated and user.profile %}
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Save</button>
+    </form>
+
+    {% endif %}
+</body>
+
+</html>

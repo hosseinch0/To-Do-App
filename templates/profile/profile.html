@@ -8,7 +8,21 @@
 </head>
 
 <body>
-    <p>PROFILE </p>
+    <h1 style="text-align: center;">PROFILE</h1>
+    {% if user.is_authenticated and user.profile %}
+    <h3>Username: {{user.username }}</h3>
+    <h3>Email: {{user.email}}</h3>
+    <h4>Job: {{user.profile.job }}</h4>
+    <h3>Age: {{user.profile.age }}</h3>
+    <h3>Sex: {{user.profile.sex }}</h3>
+    <h3>PhoneNumber: {{user.profile.phoneNumber }}</h3>
+    <h3>Education Field: {{user.profile.educationField}}</h3>
+    <h3>Country : {{user.profile.addresses.country}}</h3>
+    <h3>City : {{user.profile.addresses.city}}</h3>
+    <h3>ZIP CODE : {{user.profile.addresses.postalCode}}</h3>
+
+    <a href="{% url 'user:edit' pk=user.id %}"><button type="submit">Edit Profile</button></a>
+    {% endif %}
 </body>
 
 </html>
